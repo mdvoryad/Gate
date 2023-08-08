@@ -1,5 +1,4 @@
 package htw.controller;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.JSONPObject;
@@ -29,7 +28,7 @@ public class RequestPublisher {
     public Object listAllProducts() {
         RestTemplate restTemplate = new RestTemplate();
 
-        String url = "http://localhost:9297/findAllProducts";
+        String url = "http://data.services.com:8081/findAllProducts";
 
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
 
