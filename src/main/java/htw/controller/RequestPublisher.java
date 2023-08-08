@@ -18,7 +18,7 @@ public class RequestPublisher {
     public Object getProduct(@PathVariable String id) {
         RestTemplate restTemplate = new RestTemplate();
 
-        String url = "http://localhost:9297/findProductsById/"+id;
+        String url = "http://data.services.com:4/findProductsById/"+id;
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
 
         return response;
@@ -28,7 +28,7 @@ public class RequestPublisher {
     public Object listAllProducts() {
         RestTemplate restTemplate = new RestTemplate();
 
-        String url = "http://data.services.com:8081/findAllProducts";
+        String url = "http://data.services.com:4/findAllProducts";
 
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
 
@@ -39,7 +39,7 @@ public class RequestPublisher {
     public Object deleteProduct(@PathVariable String id) {
         RestTemplate restTemplate = new RestTemplate();
 
-        String url = "http://localhost:9297/delete/"+id;
+        String url = "http://data.services.com:4/delete/"+id;
 
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.DELETE, null, String.class);
 
@@ -49,7 +49,7 @@ public class RequestPublisher {
     @PostMapping("/orderProduct")
     public Object orderProduct(@RequestBody Product cake) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:9293/orderProduct";
+        String url = "http://data.services.com:2/orderProduct";
 
         // Set request headers and convert Product object to JSON string
         HttpHeaders headers = new HttpHeaders();
